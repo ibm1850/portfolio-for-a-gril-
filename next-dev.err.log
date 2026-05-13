@@ -1,0 +1,478 @@
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/#contact" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                      <SegmentViewNode type="page" pagePath="page.tsx">
+                        <SegmentTrieNode>
+                        <Home>
+                          <PortfolioPage>
+                            <main className="relative m...">
+                              <FlowerField>
+                              <SiteBackground>
+                              <Header>
+                              <section>
+                              <SectionShell>
+                              <SectionShell>
+                              ...
+                                <AnimatePresence mode="popLayout">
+                                  ...
+                                    <motion.button layout={true} type="button" onClick={function onClick} ...>
+                                      <MeasureLayout>
+                                      <button type="button" onClick={function onClick} className="group rela..." ...>
+                                        <img>
+                                        <div
+                                          className="absolute inset-0 bg-gradient-to-t from-[#7A0019]/88 via-[#7A0019]..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="absolute inset-x-0 bottom-0 p-6"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-4 flex items-center justify-between gap-3 text-xs uppercase ..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                  ...
+                                    <motion.button layout={true} type="button" onClick={function onClick} ...>
+                                      <MeasureLayout>
+                                      <button type="button" onClick={function onClick} className="group rela..." ...>
+                                        <video>
+                                        <div
+                                          className="absolute inset-0 bg-gradient-to-t from-[#7A0019]/88 via-[#7A0019]..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="absolute right-5 top-5 inline-flex items-center gap-2 rounded-ful..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="absolute inset-x-0 bottom-0 p-6"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-4 flex items-center justify-between gap-3 text-xs uppercase ..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                  ...
+                                    <motion.button layout={true} type="button" onClick={function onClick} ...>
+                                      <MeasureLayout>
+                                      <button type="button" onClick={function onClick} className="group rela..." ...>
+                                        <img>
+                                        <div
+                                          className="absolute inset-0 bg-gradient-to-t from-[#7A0019]/88 via-[#7A0019]..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="absolute inset-x-0 bottom-0 p-6"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-4 flex items-center justify-between gap-3 text-xs uppercase ..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                  ...
+                                    <motion.button layout={true} type="button" onClick={function onClick} ...>
+                                      <MeasureLayout>
+                                      <button type="button" onClick={function onClick} className="group rela..." ...>
+                                        <img>
+                                        <div
+                                          className="absolute inset-0 bg-gradient-to-t from-[#7A0019]/88 via-[#7A0019]..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="absolute inset-x-0 bottom-0 p-6"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-4 flex items-center justify-between gap-3 text-xs uppercase ..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                  ...
+                                    <motion.button layout={true} type="button" onClick={function onClick} ...>
+                                      <MeasureLayout>
+                                      <button type="button" onClick={function onClick} className="group rela..." ...>
+                                        <img>
+                                        <div
+                                          className="absolute inset-0 bg-gradient-to-t from-[#7A0019]/88 via-[#7A0019]..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="absolute inset-x-0 bottom-0 p-6"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-4 flex items-center justify-between gap-3 text-xs uppercase ..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                  ...
+                                    <motion.button layout={true} type="button" onClick={function onClick} ...>
+                                      <MeasureLayout>
+                                      <button type="button" onClick={function onClick} className="group rela..." ...>
+                                        <img>
+                                        <div
+                                          className="absolute inset-0 bg-gradient-to-t from-[#7A0019]/88 via-[#7A0019]..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="absolute inset-x-0 bottom-0 p-6"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-4 flex items-center justify-between gap-3 text-xs uppercase ..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                              <SectionShell id="experience" eyebrow="Experience" title="From socia...">
+                                <motion.section id="experience" className={"relative..."} initial={{opacity:0,y:34}} ...>
+                                  <section id="experience" className={"relative..."} style={{opacity:0, ...}} ...>
+                                    <div
+                                      className={"mb-12 max-w-3xl "}
+-                                     bis_skin_checked="1"
+                                    >
+                                    <CollabVideoFeature>
+                                      <div
+                                        className="mb-8 grid gap-6 lg:grid-cols-[1.04fr_0.96fr]"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="glass-panel overflow-hidden p-0"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="relative aspect-[9/16] min-h-[420px] bg-[#fff1f3] sm:aspect-[4/5]"
+-                                           bis_skin_checked="1"
+                                          >
+                                        <div
+                                          className="glass-panel p-7 sm:p-9"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <p>
+                                          <h3>
+                                          <p>
+                                          <div
+                                            className="mt-8 flex flex-wrap gap-3"
+-                                           bis_skin_checked="1"
+                                          >
+                                    <div
+                                      className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]"
+-                                     bis_skin_checked="1"
+                                    >
+                                      <div
+                                        className="glass-panel p-7 sm:p-9"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <p>
+                                        <div
+                                          className="mt-6 flex flex-wrap gap-3"
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="mt-10 space-y-4"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="flex gap-3 text-sm leading-6 text-[#702032]"
+-                                           bis_skin_checked="1"
+                                          >
+                                          <div
+                                            className="flex gap-3 text-sm leading-6 text-[#702032]"
+-                                           bis_skin_checked="1"
+                                          >
+                                          <div
+                                            className="flex gap-3 text-sm leading-6 text-[#702032]"
+-                                           bis_skin_checked="1"
+                                          >
+                                          <div
+                                            className="flex gap-3 text-sm leading-6 text-[#702032]"
+-                                           bis_skin_checked="1"
+                                          >
+                                      <div
+                                        className="relative"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-[#fb7185]..."
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+                                          className="space-y-5"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <motion.div className="relative p..." initial={{opacity:0,x:28}} ...>
+                                            <div
+                                              className="relative pl-12"
+                                              style={{opacity:0,transform:"translateX..."}}
+                                              ref={function useMotionRef.useCallback}
+-                                             bis_skin_checked="1"
+                                            >
+                                              <div
+                                                className="absolute left-0 top-2 grid size-9 place-items-center rounde..."
+-                                               bis_skin_checked="1"
+                                              >
+                                              <div
+                                                className="glass-panel p-6"
+-                                               bis_skin_checked="1"
+                                              >
+                                          <motion.div className="relative p..." initial={{opacity:0,x:28}} ...>
+                                            <div
+                                              className="relative pl-12"
+                                              style={{opacity:0,transform:"translateX..."}}
+                                              ref={function useMotionRef.useCallback}
+-                                             bis_skin_checked="1"
+                                            >
+                                              <div
+                                                className="absolute left-0 top-2 grid size-9 place-items-center rounde..."
+-                                               bis_skin_checked="1"
+                                              >
+                                              <div
+                                                className="glass-panel p-6"
+-                                               bis_skin_checked="1"
+                                              >
+                                          <motion.div className="relative p..." initial={{opacity:0,x:28}} ...>
+                                            <div
+                                              className="relative pl-12"
+                                              style={{opacity:0,transform:"translateX..."}}
+                                              ref={function useMotionRef.useCallback}
+-                                             bis_skin_checked="1"
+                                            >
+                                              <div
+                                                className="absolute left-0 top-2 grid size-9 place-items-center rounde..."
+-                                               bis_skin_checked="1"
+                                              >
+                                              <div
+                                                className="glass-panel p-6"
+-                                               bis_skin_checked="1"
+                                              >
+                                          <motion.div className="relative p..." initial={{opacity:0,x:28}} ...>
+                                            <div
+                                              className="relative pl-12"
+                                              style={{opacity:0,transform:"translateX..."}}
+                                              ref={function useMotionRef.useCallback}
+-                                             bis_skin_checked="1"
+                                            >
+                                              <div
+                                                className="absolute left-0 top-2 grid size-9 place-items-center rounde..."
+-                                               bis_skin_checked="1"
+                                              >
+                                              <div
+                                                className="glass-panel p-6"
+-                                               bis_skin_checked="1"
+                                              >
+                              <SectionShell id="services" eyebrow="Services" title="Campaign-r..." align="center">
+                                <motion.section id="services" className={"relative..."} initial={{opacity:0,y:34}} ...>
+                                  <section id="services" className={"relative..."} style={{opacity:0, ...}} ...>
+                                    <div
+                                      className="mb-12 max-w-3xl mx-auto text-center"
+-                                     bis_skin_checked="1"
+                                    >
+                                    <div
+                                      className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+-                                     bis_skin_checked="1"
+                                    >
+                                      <motion.div className="glass-pane..." whileHover={{y:-8,scale:1.01}} ...>
+                                        <div
+                                          className="glass-panel p-6"
+                                          style={{}}
+                                          ref={function useMotionRef.useCallback}
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-7 inline-flex size-12 items-center justify-center rounded-2x..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                      <motion.div className="glass-pane..." whileHover={{y:-8,scale:1.01}} ...>
+                                        <div
+                                          className="glass-panel p-6"
+                                          style={{}}
+                                          ref={function useMotionRef.useCallback}
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-7 inline-flex size-12 items-center justify-center rounded-2x..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                      <motion.div className="glass-pane..." whileHover={{y:-8,scale:1.01}} ...>
+                                        <div
+                                          className="glass-panel p-6"
+                                          style={{}}
+                                          ref={function useMotionRef.useCallback}
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-7 inline-flex size-12 items-center justify-center rounded-2x..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                      <motion.div className="glass-pane..." whileHover={{y:-8,scale:1.01}} ...>
+                                        <div
+                                          className="glass-panel p-6"
+                                          style={{}}
+                                          ref={function useMotionRef.useCallback}
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-7 inline-flex size-12 items-center justify-center rounded-2x..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                      <motion.div className="glass-pane..." whileHover={{y:-8,scale:1.01}} ...>
+                                        <div
+                                          className="glass-panel p-6"
+                                          style={{}}
+                                          ref={function useMotionRef.useCallback}
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-7 inline-flex size-12 items-center justify-center rounded-2x..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                                      <motion.div className="glass-pane..." whileHover={{y:-8,scale:1.01}} ...>
+                                        <div
+                                          className="glass-panel p-6"
+                                          style={{}}
+                                          ref={function useMotionRef.useCallback}
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="mb-7 inline-flex size-12 items-center justify-center rounded-2x..."
+-                                           bis_skin_checked="1"
+                                          >
+                                          ...
+                              <SectionShell eyebrow="Testimonials" title="Elegant co...">
+                                <motion.section id={undefined} className={"relative..."} initial={{opacity:0,y:34}} ...>
+                                  <section id={undefined} className={"relative..."} style={{opacity:0, ...}} ...>
+                                    <div
+                                      className={"mb-12 max-w-3xl "}
+-                                     bis_skin_checked="1"
+                                    >
+                                    <div
+                                      className="grid gap-5 md:grid-cols-3"
+-                                     bis_skin_checked="1"
+                                    >
+                                      <div
+                                        className="glass-panel p-6"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="mb-6 flex gap-1 text-[#e11d48]"
+-                                         bis_skin_checked="1"
+                                        >
+                                        <p>
+                                        <div
+                                          className="mt-7 border-t border-[#e11d48]/12 pt-5"
+-                                         bis_skin_checked="1"
+                                        >
+                                      <div
+                                        className="glass-panel p-6"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="mb-6 flex gap-1 text-[#e11d48]"
+-                                         bis_skin_checked="1"
+                                        >
+                                        <p>
+                                        <div
+                                          className="mt-7 border-t border-[#e11d48]/12 pt-5"
+-                                         bis_skin_checked="1"
+                                        >
+                                      <div
+                                        className="glass-panel p-6"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="mb-6 flex gap-1 text-[#e11d48]"
+-                                         bis_skin_checked="1"
+                                        >
+                                        <p>
+                                        <div
+                                          className="mt-7 border-t border-[#e11d48]/12 pt-5"
+-                                         bis_skin_checked="1"
+                                        >
+                              <SectionShell id="contact" eyebrow="Contact" title="For sponso..." copy="Use the fo...">
+                                <motion.section id="contact" className={"relative..."} initial={{opacity:0,y:34}} ...>
+                                  <section id="contact" className={"relative..."} style={{opacity:0, ...}} ...>
+                                    <div
+                                      className={"mb-12 max-w-3xl "}
+-                                     bis_skin_checked="1"
+                                    >
+                                    <ContactForm>
+                                      <div
+                                        className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="glass-panel p-7 sm:p-9"
+-                                         bis_skin_checked="1"
+                                        >
+                                          <p>
+                                          <h3>
+                                          <p>
+                                          <div
+                                            className="mt-8 space-y-3"
+-                                           bis_skin_checked="1"
+                                          >
+                                          <div
+                                            className="mt-8 grid gap-4 sm:grid-cols-[0.78fr_1fr]"
+-                                           bis_skin_checked="1"
+                                          >
+                                            <div
+                                              className="rounded-[1.25rem] border border-[#e11d48]/20 bg-white p-3 sha..."
+-                                             bis_skin_checked="1"
+                                            >
+                                            <div
+                                              className="flex flex-col justify-center rounded-[1.25rem] bg-[#fff1f3] p-5"
+-                                             bis_skin_checked="1"
+                                            >
+                                        <motion.form onSubmit={function handleSubmit} className="glass-pane..." ...>
+                                          <form onSubmit={function handleSubmit} className="glass-pane..." ...>
+                                            <div
+                                              className="grid gap-4 sm:grid-cols-2"
+-                                             bis_skin_checked="1"
+                                            >
+                                            <label>
+                                            <div
+                                              className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justi..."
+-                                             bis_skin_checked="1"
+                                            >
+                              <footer className="border-t b...">
+                                <div
+                                  className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-[#702032] md:flex-row ..."
+-                                 bis_skin_checked="1"
+                                >
+                                  <div
+-                                   bis_skin_checked="1"
+                                  >
+                                  <div
+                                    className="flex flex-wrap gap-4"
+-                                   bis_skin_checked="1"
+                                  >
+                      ...
+                    ...
+        ...
+ 
